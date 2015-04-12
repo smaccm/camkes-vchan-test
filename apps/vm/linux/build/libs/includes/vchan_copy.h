@@ -76,7 +76,7 @@ typedef struct vchan_connect {
 
 void volatile_copy(void *dest, void *rec, int size);
 
-#define NUM_PACKETS 800
+#define NUM_PACKETS 80
 #define MSG_HELLO 	0
 #define MSG_ACK 	1
 #define MSG_CONC	2

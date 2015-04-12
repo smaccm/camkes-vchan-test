@@ -20,8 +20,10 @@
 #include "vmm/vmm.h"
 #include "vmm/vchan_copy.h"
 #include "vmm/vchan_sharemem.h"
-#include "vm.h"
-#include "vmm/debug.h"
+//#include "vm.h"
+//#include "vmm/debug.h"
+//#define DPRINTF(num, str) printf("%d %s", num, str);
+#define DPRINTF(num, ...) printf(__VA_ARGS__);
 
 #include "vmm/vmm_manager.h"
 

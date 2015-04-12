@@ -8,19 +8,14 @@
  * @TAG(NICTA_GPL)
  */
 
-//#include <autoconf.h>
-//#include <configurations/vm.h>
-import <PutChar.idl4>;
 import <VchanInterface.idl4>;
 
-component Vchan {
+component HelloWorld {
+    control;
+
     include "vmm/vchan_sharemem.h";
     dataport vchan_headers_t share_mem;
+    uses VchanInterface vchan_con;
 
-    provides VchanInterface vchan_com;
-
-    emits VchanEvent vevent_sv;
-    emits VchanEvent vevent_cl;
-
-    uses PutChar putchar;
+    consumes VchanEvent vevent;
 }

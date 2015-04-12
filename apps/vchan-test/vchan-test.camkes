@@ -1,0 +1,30 @@
+import <std_connector.camkes>;
+
+import <VchanInterface.idl4>;
+
+import <Vchan/Vchan.camkes>;
+import <HelloWorldAADL/HelloWorld.camkes>;
+import <HelloWorldClient/HelloWorldClient.camkes>;
+
+assembly {
+  composition {
+    component Vchan vchan_0;
+    component HelloWorld hello;
+    component HelloWorldClient hello_client;
+
+    /* Connect hello to the vchan component */ 
+    connection seL4Asynch vchan_event(from vchan_0.vevent_sv, to hello.vevent); 
+    connection seL4RPCCall hvchan(from hello.vchan_con, to vchan_0.vchan_com); 
+    connection seL4SharedData hvchan_sharemem_0(from hello.share_mem, to vchan_0.share_mem); 
+    /* Connect hello_client to the vchan component */ 
+    connection seL4RPCCall vchan_1(from hello_client.vchan_con, to vchan_0.vchan_com); 
+    connection seL4SharedData vchan_sharemem_1(from hello_client.share_mem, to vchan_0.share_mem); 
+    connection seL4Asynch vchan_event_init_1(from vchan_0.vevent_cl, to hello_client.vevent); 
+
+  }
+  configuration {
+    vchan_0.vchan_com_priority = 200;
+    hello._control_priority = 150;
+    hello_client._control_priority = 100;
+  }
+}
