@@ -1,9 +1,7 @@
 import <std_connector.camkes>;
 
-import <VchanInterface.idl4>;
-
 import <Vchan/Vchan.camkes>;
-import <HelloWorldAADL/HelloWorld.camkes>;
+import <HelloWorldServer/HelloWorld.camkes>;
 import <HelloWorldClient/HelloWorldClient.camkes>;
 
 assembly {

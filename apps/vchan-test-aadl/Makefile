@@ -9,10 +9,11 @@
 #
 
 TARGETS := $(notdir ${SOURCE_DIR}).cdl
-ADL := vchan-test.camkes
+ADL := vchan-test-aadl.camkes
 
 include Vchan/Vchan.mk
-include HelloWorldServer/HelloWorld.mk
+include VchanProxy/VchanProxy.mk
+include HelloWorldServerAADL/HelloWorld.mk
 include HelloWorldClient/HelloWorldClient.mk
 
 include ${PWD}/tools/camkes/camkes.mk

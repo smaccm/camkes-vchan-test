@@ -1,0 +1,31 @@
+/*
+ * Copyright 2014, NICTA
+ *
+ * This software may be distributed and modified according to the terms of
+ * the GNU General Public License version 2. Note that NO WARRANTY is provided.
+ * See "LICENSE_GPLv2.txt" for details.
+ *
+ * @TAG(NICTA_GPL)
+ */
+
+import <VchanInterface_2.idl4>;
+import <void_writer.idl4>;
+import <vChan_demo__structs_vchan_shared_mem_headers_writer.idl4>;
+
+
+component HelloWorld {
+    control;
+
+    //include "vmm/vchan_sharemem.h";
+    //dataport vchan_headers_t share_mem;
+    include "smaccm_test1_impl_types.h";
+    dataport vChan_demo__structs_vchan_shared_mem_headers buff1;
+
+    //uses VchanInterface vchan_con;
+    uses VchanInterface_2 rpc;
+
+    //consumes VchanEvent vevent;
+    provides void_writer vevent; 
+    //has mutex smaccm_receiver_vevent_mut; 
+    has semaphore smaccm_receiver_vevent_sem;
+}

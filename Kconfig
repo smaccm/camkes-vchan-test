@@ -49,6 +49,7 @@ menu "Applications"
     source "apps/capdl-loader-experimental/Kconfig"
     source "apps/vm/Kconfig"
     source "apps/vchan-test/Kconfig"
+    source "apps/vchan-test-aadl/Kconfig"
     source "apps/cxx/Kconfig"
 endmenu
 
