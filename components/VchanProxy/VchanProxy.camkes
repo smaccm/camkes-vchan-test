@@ -29,7 +29,7 @@ component VchanProxy {
 
     /* Outgoing interfaces */
 
-    include "vmm/vchan_sharemem.h";
+    include <sel4vchan/vchan_sharemem.h>;
     // dataport vchan_headers_t share_mem_out;
 
     uses VchanInterface vchan_com_out;

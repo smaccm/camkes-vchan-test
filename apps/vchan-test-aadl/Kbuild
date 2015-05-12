@@ -9,4 +9,4 @@
 #
 
 apps-$(CONFIG_APP_CAMKES_VCHANTEST_AADL) += vchan-test-aadl
-vchan-test-aadl: libsel4 libmuslc libsel4platsupport libsel4muslccamkes libsel4camkes libsel4vmm libsel4sync libsel4debug libsel4bench common
+vchan-test-aadl: libsel4 libmuslc libsel4muslccamkes libsel4camkes libsel4arm-vmm libsel4vchan libsel4sync libsel4debug

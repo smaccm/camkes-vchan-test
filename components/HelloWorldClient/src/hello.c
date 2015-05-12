@@ -17,9 +17,9 @@
 
 #include <HelloWorldClient.h>
 
-#include "vmm/vchan_component.h"
-#include "vmm/vchan_copy.h"
-#include "vmm/vchan_sharemem.h"
+#include <sel4vchan/vchan_component.h>
+#include <sel4vchan/vchan_copy.h>
+#include <sel4vchan/vchan_sharemem.h>
 
 #define DPRINTF(num, ...) printf(__VA_ARGS__);
 #define DBG_CLIENT 5
@@ -28,10 +28,12 @@
 #define VCHAN_SERVER_DOM 0
 #define VCHAN_PORT 25
 
+/*
 #define CORE_SIZE 4096
 static char core_buf[CORE_SIZE];
 extern char *morecore_area;
 extern size_t morecore_size;
+*/
 
 static int send_packet(libvchan_t *con);
 static int send_string(const char *string, libvchan_t *con);
@@ -46,15 +48,18 @@ static camkes_vchan_con_t con = {
     .wait = &vevent_wait,
     .poll = &vevent_poll,
 
-    .component_dom_num = VCHAN_SERVER_DOM,
+    .dest_dom_number = 50,
+    .source_dom_number = 0,
 };
 
 
 void pre_init(void) {
+/*
     con.data_buf = (void *) share_mem;
     morecore_area = core_buf;
     morecore_size = CORE_SIZE;
     init_camkes_vchan(&con);
+*/
 }
 
 int send_packet(libvchan_t *con) {
@@ -118,8 +123,12 @@ int send_string(const char *string, libvchan_t *con) {
 int run(void) {
     int ecount = 0;
 
+    con.data_buf = (void *) share_mem;
+
     DPRINTF(DBG_CLIENT, "client: Creating connection\n");
     libvchan_t *ctrl = libvchan_client_init(VCHAN_CLIENT_DOM, VCHAN_PORT);
+    if(ctrl != NULL)
+        ctrl = link_vchan_comp(ctrl, &con);
     assert(ctrl != NULL);
     printf("client: Connection Established!\n");
 

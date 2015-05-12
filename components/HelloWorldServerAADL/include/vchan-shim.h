@@ -8,9 +8,9 @@
  * @TAG(NICTA_GPL)
  */
 
-#include "vmm/vmm.h"
-#include "vmm/vchan_copy.h"
-#include "vmm/vchan_sharemem.h"
+// #include "vmm/vmm.h"
+#include <sel4vchan/vchan_copy.h>
+#include <sel4vchan/vchan_sharemem.h>
 
 int vchan_con_new_connection(vchan_connect_t con);
 int vchan_con_rem_connection(vchan_connect_t con);

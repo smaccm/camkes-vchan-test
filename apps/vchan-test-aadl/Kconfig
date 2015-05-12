@@ -11,7 +11,5 @@
 menuconfig APP_CAMKES_VCHANTEST_AADL
     bool "Vchan and AADL test application"
     default n
-    depends on LIB_SEL4 && (LIB_MUSL_C || LIB_SEL4_C) && LIB_SEL4_VKA &&\
-               LIB_SEL4_VMM && LIB_SEL4_UTILS && LIB_UTILS && LIB_SEL4_PLAT_SUPPORT 
     help 
         VChan and AADL Test application.

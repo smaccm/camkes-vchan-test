@@ -2,10 +2,10 @@
 # Copyright 2014, NICTA
 #
 # This software may be distributed and modified according to the terms of
-# the GNU General Public License version 2. Note that NO WARRANTY is provided.
-# See "LICENSE_GPLv2.txt" for details.
+# the BSD 2-Clause license. Note that NO WARRANTY is provided.
+# See "LICENSE_BSD2.txt" for details.
 #
-# @TAG(NICTA_GPL)
+# @TAG(NICTA_BSD)
 #
 
 mainmenu "CAmkES project configuration"
@@ -19,7 +19,6 @@ menu "Kernel"
 endmenu
 
 menu "Libraries"
-    source "libs/libboost/Kconfig"
     source "libs/libmuslc/Kconfig"
     source "libs/libsel4/Kconfig"
     source "libs/libsel4muslcsys/Kconfig"
@@ -28,30 +27,29 @@ menu "Libraries"
     source "libs/libsel4utils/Kconfig"
     source "libs/libcpio/Kconfig"
     source "libs/libelf/Kconfig"
+    source "libs/libsel4bench/Kconfig"
     source "libs/libsel4sync/Kconfig"
     source "libs/libsel4vspace/Kconfig"
     source "libs/libsel4vka/Kconfig"
     source "libs/libplatsupport/Kconfig"
+    source "libs/libsel4dma/Kconfig"
     source "libs/libsel4debug/Kconfig"
     source "libs/libutils/Kconfig"
     source "libs/libsel4simple/Kconfig"
-    source "libs/libsel4simple-stable/Kconfig"
-    source "libs/libpci/Kconfig"
-    source "libs/libsel4vmm/Kconfig"
+    source "libs/libsel4simple-default/Kconfig"
+    source "libs/libsel4arm-vmm/Kconfig"
     source "libs/libsel4allocman/Kconfig"
-    source "libs/libsel4bench/Kconfig"
-    source "libs/libsel4cxx/Kconfig"
-    source "libs/libethdrivers/Kconfig"
-    source "libs/liblwip/Kconfig"
+    source "libs/libusbdrivers/Kconfig"
+    source "libs/libsel4vchan/Kconfig"
 endmenu
 
 menu "Applications"
     source "apps/capdl-loader-experimental/Kconfig"
-    source "apps/vm/Kconfig"
     source "apps/vchan-test/Kconfig"
     source "apps/vchan-test-aadl/Kconfig"
-    source "apps/cxx/Kconfig"
+
 endmenu
 
+source "tools/elfloader/Kconfig"
 source "tools/camkes/Kconfig"
 source "$COMMON_PATH/Kconfig"

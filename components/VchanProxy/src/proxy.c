@@ -16,9 +16,9 @@
 
 #include <VchanProxy.h>
 
-#include "vmm/vmm.h"
-#include "vmm/vchan_copy.h"
-#include "vmm/vchan_sharemem.h"
+// #include <vmm/vmm.h>
+#include <sel4vchan/vchan_copy.h>
+#include <sel4vchan/vchan_sharemem.h>
 
 #define DPRINTF(num, ...) printf(__VA_ARGS__);
 void copy_vChan_demo__structs_vchan_ctrl(vchan_ctrl_t *dest, vChan_demo__structs_vchan_ctrl *src) {

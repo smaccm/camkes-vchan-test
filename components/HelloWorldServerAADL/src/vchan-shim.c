@@ -14,9 +14,8 @@
 #include <HelloWorld.h>
 #include "smaccm_test1_impl_types.h"
 
-#include "vmm/vmm.h"
-#include "vmm/vchan_copy.h"
-#include "vmm/vchan_sharemem.h"
+#include <sel4vchan/vchan_copy.h>
+#include <sel4vchan/vchan_sharemem.h>
 
 #include "vchan-shim.h"
 
